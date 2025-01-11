@@ -2,13 +2,14 @@
 // Account class with name and balance data members, and a
 // constructor and deposit function that each perform validation.
 #include <string>
- 
+#include <iomanip>
 using namespace std;
 
 class Account {
+  
 public:
    // Account constructor with two parameters
-   Account(std::string accountName, int initialBalance)
+   Account(std::string accountName, double initialBalance)
       : name{accountName} { // assign accountName to data member name
 
       // validate that the initialBalance is greater than 0; if not,
@@ -19,14 +20,14 @@ public:
    }
 
    // function that deposits (adds) only a valid amount to the balance
-   void deposit(int depositAmount) {
+   void deposit(double depositAmount) {
       if (depositAmount > 0) { // if the depositAmount is valid
          balance = balance + depositAmount; // add it to the balance
       }
    }
     
     // function that withdrwas (deducts) an amount to the balance
-    void withdraw(int withdrawAmount){
+    void withdraw(double withdrawAmount){
         if(withdrawAmount < balance) {
             balance = balance - withdrawAmount;
         } else {
@@ -35,7 +36,7 @@ public:
     }
 
    // function returns the account balance
-   int getBalance() const {
+   double getBalance() const {
       return balance;
    }
 
@@ -50,7 +51,7 @@ public:
    }
 private:
    std::string name; // account name data member
-   int balance{0}; // data member with default initial value
+   double balance{0.00}; // data member with default initial value
 }; // end class Account
 
 

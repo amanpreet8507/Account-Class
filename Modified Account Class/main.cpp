@@ -2,12 +2,13 @@
 // Displaying and updating Account balances.
 #include <iostream>
 #include "Account.h"
-
+#include <iomanip>
 using namespace std;
 
 int main()
 {
-   Account account1{"Jane Green", 50};
+    cout << fixed << setprecision(2);
+   Account account1{"Jane Green", 50.50};
    Account account2{"John Blue", -7};
 
    // display initial balance of each object
@@ -18,7 +19,7 @@ int main()
 
     // deposit test in account1
    cout << "\n\nEnter deposit amount for account1: "; // prompt
-   int depositAmount;
+   double depositAmount;
    cin >> depositAmount; // obtain user input
    cout << "adding " << depositAmount << " to account1 balance";
    account1.deposit(depositAmount); // add to account1's balance
@@ -38,7 +39,7 @@ int main()
     
     // withdrawal test in account1
     cout << "\n\nEnter withdrawal amount for account1: "; // prompt
-    int withdrawAmount;
+    double withdrawAmount;
     cin >> withdrawAmount; // obtain user input
     cout << "deducting " << withdrawAmount << " from account1 balance";
     account1.withdraw(withdrawAmount); // add to account1's balance
@@ -59,5 +60,7 @@ int main()
       << account1.getBalance();
    cout << "\naccount2: " << account2.getName() << " balance is $"
       << account2.getBalance() << endl;
+    
+    return 0;
 }
 
